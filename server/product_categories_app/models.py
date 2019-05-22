@@ -7,9 +7,9 @@ class ProductCategory(models.Model):
     modified = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
 
     class Meta:
-        
+
         ordering = ['-name', '-created', '-modified']
 
-    def __init__(self):
+    def __str__(self):
 
         return self.name

@@ -5,6 +5,6 @@ from . import models
 @admin.register(models.ProductSubcategory)
 class ProductSubcategoryAdmin(admin.ModelAdmin):
 
-    list_display = ('name', 'created', 'modified')
-    list_filter = ('name',)
-    search_fields = ['name',]
+    list_display = ('product_category', 'name', 'created', 'modified')
+    list_filter = ('product_category', 'name')
+    search_fields = ['product_category', 'name']
