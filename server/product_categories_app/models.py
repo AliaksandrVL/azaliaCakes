@@ -2,9 +2,9 @@ from django.db import models
 
 class ProductCategory(models.Model):
 
-    name = models.CharField(verbose_name='Название категории продукта', max_length=64, unique=True)
+    name = models.CharField(verbose_name='Наименование', max_length=64, unique=True)
     created = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
-    modified = models.DateTimeField(verbose_name='Дата обновления', auto_now=True)
+    modified = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
 
     class Meta:
 
