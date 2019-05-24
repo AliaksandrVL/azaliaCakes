@@ -1,10 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/products_app/style.css">
     <title>Azalia Cakes</title>
 </head>
 <body>
-    <h1>{{ query }}</h1>
+    {% for item in query %}
+    <div class='item'>
+        <img src="/media/ {{ item.image }}">
+        <h2>{{ item.name }}</h2>
+    </div>
+    {% endfor %}    
 </body>
 </html>
