@@ -2,7 +2,7 @@ from django.db import models
 
 class Image(models.Model):
 
-    product = models.ForeignKey('products_app.Product', on_delete=models.CASCADE, verbose_name='Продукт')
+    owner = models.ForeignKey('products_app.Product', on_delete=models.CASCADE, verbose_name='Владелец')
     image = models.ImageField(verbose_name='Изображение')
     name = models.CharField(verbose_name='Наименование', max_length=64, unique=True)
     description = models.TextField(verbose_name='Описание', blank=True)
@@ -11,7 +11,7 @@ class Image(models.Model):
 
     class Meta:
 
-        ordering = ['-product', '-name', '-created', '-modified']
+        ordering = ['-owner', '-name', '-created', '-modified']
 
     def __str__(self):
 
