@@ -14,3 +14,7 @@ def product_object(request, pk):
     instance = get_object_or_404(models.Product, id=pk)
 
     return render(request, 'products_app/object.htm', {'instance': instance})
+
+def product_create(request):
+    
+    return render(request, 'products_app/create.htm', {})
