@@ -1,0 +1,22 @@
+{% extends 'master.htm' %}
+{% load static %}
+
+{% block page_static %}
+    <link rel="stylesheet" href="/static/products_app/style.css">
+{% endblock %}
+
+{% block page_title %}
+    {{ instance.name }}
+{% endblock %}
+
+{% block page_content %}
+    
+    <form action="">
+        <div class="form-group">
+            <label for="name">Наименование</label>
+            <input name="name" type="text">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
