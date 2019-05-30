@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'master.htm' %}
+{% load static %}
+
+{% block page_static %}
+    <link rel="stylesheet" href="/static/products_app/style.css">
+{% endblock %}
+
+{% block page_title %}
+    {{ instance.name }}
+{% endblock %}
+
+{% block page_content %}
+    <div>{{ instance.full_name }}</div>
+{% endblock %}

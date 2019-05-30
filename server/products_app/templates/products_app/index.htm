@@ -1,20 +1,19 @@
+{% extends 'master.htm' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% block page_static %}
     <link rel="stylesheet" href="/static/products_app/style.css">
-    <title>Azalia Cakes</title>
-</head>
-<body>
+{% endblock %}
+
+{% block page_title %}
+    Azalia Cakes
+{% endblock %}
+
+{% block page_content %}
     {% for item in query %}
     <div class='item'>
-        <img src="/media/ {{ item.image }}">
-        <h2>{{ item.name }}</h2>
+        <img src="/media/{{ item.image }}">
+        <h2><a href="{% url 'products_app:object' item.id %}">{{ item.name }}</a></h2>
     </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
