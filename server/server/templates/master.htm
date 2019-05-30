@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block page_static %}{% endblock %}
+    <title>{% block page_title %}{% endblock %}</title>
 </head>
 <body>
-$END$
+
+    <h1>Welcome to Azalia Cakes</h1>
+
+    {% block page_content %}{% endblock %}
+
 </body>
 </html>
