@@ -1,0 +1,20 @@
+{% extends 'master.htm' %}
+{% load static %}
+
+{% block page_static %}
+    <link rel="stylesheet" href="{% static 'products_app/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    Azalia Cakes
+{% endblock %}
+
+{% block page_content %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </form>
+
+{% endblock %}
