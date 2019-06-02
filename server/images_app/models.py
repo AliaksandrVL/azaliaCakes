@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Image(models.Model):
 
     owner = models.ForeignKey('products_app.Product', on_delete=models.CASCADE, verbose_name='Владелец')
