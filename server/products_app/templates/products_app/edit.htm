@@ -1,0 +1,37 @@
+{% extends 'master.htm' %}
+{% load static %}
+
+{% block page_static %}
+    <link rel="stylesheet" href="{% static 'products_app/style.css' %}">
+{% endblock %}
+
+{% block page_title %}
+    Azalia Cakes
+{% endblock %}
+
+{% block page_content %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for err in form.not_field_errors %}
+            <div class="alert aler-danger" role="alert">
+                <span>{{ err }}</span>
+            </div>
+        {% endfor %}
+
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.name }}">{{ field.label }}</label>
+                {{ field }}
+
+                <!-- {% for err in form.errors %}
+                    <small class="form-text">{{ err }}</small>
+                {% endfor %} -->
+            </div>
+        {% endfor %}
+        
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+{% endblock %}
