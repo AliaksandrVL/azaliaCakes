@@ -1,0 +1,36 @@
+{% extends 'master.htm' %}
+
+{% block page_title %}
+    Login
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="login_view">
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {% for err in form.non_field_errors %}
+                    <span>{{ err }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.name }}">{{ field.label }}</label>
+                    {{ field }}
+
+                    {% for err in field.errors %}
+                        <span class="help-block">{{ err }}</span>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <input class="btn btn-primary" type="submit" value="Signin">
+        </form>
+    </div>
+
+{% endblock %}
