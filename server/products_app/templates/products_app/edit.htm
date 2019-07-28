@@ -14,11 +14,13 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-        {% for err in form.not_field_errors %}
+        {% if form.non_field_errors %}
             <div class="alert aler-danger" role="alert">
-                <span>{{ err }}</span>
+                {% for err in form.not_field_errors %}
+                    <span>{{ err }}</span>
+                {% endfor %}
             </div>
-        {% endfor %}
+        {% endif %}
 
         {% for field in form %}
             <div class="form-group">
