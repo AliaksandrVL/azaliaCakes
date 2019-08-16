@@ -11,11 +11,56 @@
 
 {% block page_content %}
     
-    {% for item in query %}
+    <h2>{{ user }}</h2>
+
+    <table>
+        {% for itm in query %}
+            <tr>
+                <td><h3><a href = "{% url 'products_app:detail' itm.id %}">{{ itm.name|upper }}</a></h3></td>
+            </tr>
+            <tr class="list">
+                <td><img src="/media/{{ itm.image }}" alt=""><p>{{ itm.content|linebreaksbr }}</p></td>
+            </tr>
+            <tr class="created">
+                <td><p>Добавлено {{ itm.created|date:"D, d M Y, H:i" }}</p></td>
+            </tr>
+        {% endfor %}
+        <tr class="row pagination-box">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    </li>
+                {% endif %}
+
+                {% if page_obj.paginator.num_pages > 1 %}
+                    {% for number in page_obj.paginator.page_range %}
+                        {% if number == page_obj.number %}
+                            <li class="page-item">
+                                <span class="page-link active">{{ number }}</span>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ number }}">{{ number }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </tr>
+    </table>
+
+    <!-- {% for item in query %}
     <div class='item'>
         <img src="/media/{{ item.image }}">
         <h2><a href="{% url 'products_app:detail' item.id %}">{{ item.name }}</a></h2>
     </div>
-    {% endfor %}
+    {% endfor %} -->
 
 {% endblock %}
