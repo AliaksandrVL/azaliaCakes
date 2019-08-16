@@ -47,8 +47,7 @@ class SigninForm(forms.ModelForm):
             raise forms.ValidationError('Password is not confirm')
         
         return self.cleaned_data
-        #super(SigninForm, self).clean_password_confirm()
-    
+        
     def save(self, commit=True):
         
         password = self.cleaned_data.get('password')
